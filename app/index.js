@@ -9,7 +9,8 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Connect to MongoDB
-mongoose.connect('',
+//mongo -> docker compose
+mongoose.connect('mongodb://mongo:27017/app',
   // mongo config when working with docker
   { useNewUrlParser: true }
 )
@@ -37,8 +38,8 @@ app.post('/item/add', (req, res) => {
   newItem.save().then(item => res.redirect('/'));
 });
 
-const port = ''
+const port = 3000
 
 // which port is the node server listening on?
 
-app.listen(port, () => console.log('I will not run', port));
+app.listen(port, () => console.log('Ejecutando ando :3', port));
